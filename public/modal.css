@@ -1,0 +1,117 @@
+.addModal{
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+}
+
+.addModal .material-icons{
+    background-color: #354046;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #3f494fc2;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+
+.modal{
+    width: 698px;
+    height: 400px;
+    background-color: #e2e4e1;
+    margin:100px auto;
+    position: relative;
+    
+}
+
+.modal-overlay.ativo{
+    opacity: 1;
+   visibility: visible;
+   animation-name: show;
+   animation-duration: 1s;
+}
+
+
+@keyframes show{
+
+    from{
+        opacity: 0;
+        /* transform: translateY(-50); */
+    }
+    to{
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+
+}
+
+.itens{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.modal form h4{
+    padding: 37px 0 0 33px;
+    color: #353f46;
+}
+
+.itens{
+    padding: 0 37px;
+}
+form{
+    position: relative;
+}
+.item input{
+    background-color:#e2e4e1 ;
+    border: none;
+    border-bottom: 1px solid #818181;
+    outline: 0;
+
+}
+.item{
+    position: relative;
+}
+
+.item h5{
+    color: #8f8f8f;
+    font-size: 15px;
+}
+
+.detalhes{
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background-color: rosybrown;
+}
+
+
+.botoes{
+    position: absolute;
+    display: flex;
+    right: 37px;
+    bottom: -150px;
+}
+
+.botoes button{
+    padding: 17px;
+    background-color: #45535a;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+
+}
+
+.botoes button{
+    margin-right: 5px;
+    
+}

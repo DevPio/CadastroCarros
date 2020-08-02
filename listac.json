@@ -1,0 +1,17 @@
+{
+  "carros": [
+    {
+      "id": "1",
+      "veiculo": "Palio",
+      "ano": "2020",
+      "marca": "Fiat",
+      "vendido": "on"
+    },
+    {
+      "id": 3,
+      "veiculo": "Palio G5 SP.1.6 Flex",
+      "ano": "2008",
+      "marca": "Fiat"
+    }
+  ]
+}

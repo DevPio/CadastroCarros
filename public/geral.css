@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #e2e4e1;
+}
+
+
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    height: 67px;
+    background-color: #364147;
+    
+}
+
+.menuint{
+    width: 1200px;
+    height: 67px;
+    display: flex;
+    align-items: center;
+  
+}
+
+.logo{
+    flex: 5;
+    display: flex;
+    align-items: center;
+    color: #f1f3f0;
+}
+.busca input{
+    width: 498px;
+    height: 67px;
+    background-color: #2a3138;
+    border: none;
+    font-size: 13px;
+    color: #8c8e8d;
+    outline: 0;
+    text-align: unset;
+
+}
+.material-icons{
+    font-size: 50px;
+}
+
+
+.addC{
+    display: flex;
+    justify-content: center;
+}
+
+
+.addCint{
+    width: 1200px;
+    height: 117px;
+    border-bottom: 1px solid #babbb9;
+    position: relative;
+}
+
+
+
+.veiculos h6{
+    text-transform: uppercase;
+    color: #364147;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+}
+
+.outrosv{
+    display: flex;
+    justify-content: center;
+}
+.cards{
+
+    width: 1200px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.cartDes{
+    width: 461px;
+    height: 464px;
+    background-color:#f1f2f0 ;
+}
+.cartV{
+    width: 461px;
+    height: 464px;
+
+
+}
+.outrosv{
+    height: 800px;
+}
+.marc{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.descr h4{
+   
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.veiculos h4{
+    
+    padding-top: 20px;
+}
+.card{
+    width:456px;
+    height: 78px;
+    display: flex;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+    
+}
+.info{
+   margin-left: 10px;
+   margin-top: 10px;
+}
+.info p {
+    margin: 0;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vendido{
+    background-color: #e31;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    color: white;
+    font-size: 15px;
+}
+.descr{
+    position: relative;
+    
+}
+.mdl-button--accent.mdl-button--accent.mdl-button--raised,
+ .mdl-button--accent.mdl-button--accent.mdl-button--fab {
+    background-color: #45535a;
+    color: #eeefed;
+    position: absolute;
+    left:10px;
+    top: 64%;
+   
+    
+    
+}
+
+.dele{
+    background-color: #e31;
+}
