@@ -9,10 +9,8 @@
     <title>Cadastro</title>
 </head>
 <body>
-    
     <header>
         <div class="menu">
-        
             <div class="menuint">
                 <div class="logo">
                     <span class="material-icons" >
@@ -23,61 +21,35 @@
                     </div>
                 </div>
                 <div class="busca">
-                
                     <input type="text"  value="BUSCA por um veículo">
-                
                 </div>
-
             </div>
-        
-        
         </div>
-    
-    
     </header>
-
     <section class="addC">
-    
         <div class="addCint">
             <div class="veiculos">
                 <h6>veiculos</h6>
-            
-            
             </div>
             <div class="addModal">
-              
                     <i class="material-icons" id="bt">add</i>
-              
-            
             </div>
         </div>
-    
-    
-    
     </section>
-
     <section class="outrosv">
-        
     <div class="cards">
-    
-    
         <div class="veiculos">
         <h4>Lista de veículos</h4>
             <div class="cartV">
-                
                 {% for i in item.carros %}
-
                 <div class="card">
                     <div class="info">
                      <input type="hidden" id="id" name="id"  value="{{i.id}}">
                         <p id="marca">{{i.marca}}</p>
                         <p id="veiculo">{{i.veiculo}}</p>
                         <p id="ano">{{i.ano}}</p>
-                    
                     </div>
                     <div class="icon">
-                    
-                    
                     </div>
                     {% if i.vendido =="on" %}
                         <div class="vendido">
@@ -85,20 +57,10 @@
                         </div>
                     {% endif %}
                 </div>
-                    
                 {% endfor %}
-            
-            
             </div>
-        
-        
-        
         </div>
-    
-    
-    
         <div class="descr">
-        
             <div class="descInt">
             <h4>Detalhes</h4>
             <div class="cartDes">
@@ -108,58 +70,24 @@
                 <h6>Ano</h6>
                 <p>Palio</p>
                 <p>2016</p>
-
-
-                
                 </div>
-            
             </div>
-           
                  <div class="buts">
-            
                 <button id="btA" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                     Editar
                 </button>
-
                 </div>
-                
             </div>
-            
             </div>
-        
-        
         </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     </div>
-
     </section>
-
-
-
-
     <div class="modal-overlay">
         <div class="modal">
             <form action="/index" method="POST">
-            
                 <h4>Novo Veículo</h4>
                 <div class="itens">
-                    
                     <div class="item">
-                    
                         <h5>Veículo</h5>
                         <input type="text"
                         name="veiculo"
@@ -192,25 +120,15 @@
                         </label>
                     
                 </div>
-                
-                
                 </div>
                     <div class="botoes">
                     <button type="submit">Adicionar</button>
                     <button class="btf">Fechar</button>
-                
                 </div>
-                
                 </div>
-            
             </form>
-
-            
-        
         </div>
-    
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
