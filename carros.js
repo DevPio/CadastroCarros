@@ -1,215 +1,123 @@
-const fs = require('fs')
+const fs = require("fs");
 
-const dadosC = require('./listac.json')
+const dadosC = require("./listac.json");
 
+const lista = require("./listac.json");
 
-const lista = require('./listac.json')
+class Carro {
+  id(req, res) {
+    id = req.query.id;
 
+    const idv = lista.carros.find((item) => {
+      return item.id == id;
+    });
 
-
-exports.id = (req,res)=>{
-
-    id = req.query.id
-
-    const idv = lista.carros.find((item)=>{
-
-        return item.id == id
-
-
-    })
-
-    if(!idv){
-
-        return res.send('Instrutor não encontrado')
-
+    if (!idv) {
+      return res.send("Instrutor não encontrado");
     }
 
-
-    return res.render('detalhes',{idv:item})
-
-
-}
-
-exports.ex = (req,res)=>{
-
-    let {id} = req.body
+    return res.render("detalhes", { idv: item });
+  }
+  ex(req, res) {
+    let { id } = req.body;
 
     let index = 0;
-    const founid = dadosC.carros.find((item,pos)=>{
+    const founid = dadosC.carros.find((item, pos) => {
+      if (item.id == id) {
+        index = pos;
+        return item;
+      }
+    });
 
-        if(item.id == id){
+    lista.carros.splice(index, 1);
 
-            index = pos
-            return item
+    fs.writeFile(
+      "./listac.json",
+      JSON.stringify(lista, null, 2),
+      (erro, resposta) => {
+        if (erro) {
+          return res.send("Deu erro");
         }
 
-
-    })
-   
-
-    lista.carros.splice(index,1)
-
-
-    fs.writeFile('./listac.json', JSON.stringify(lista,null,2),(erro,resposta)=>{
-
-
-        if(erro){
-
-          return res.send('Deu erro')
-
-        }
-
-        return res.redirect("index")
-
-    })
-
-
-
-
-
-}
-
-
-
-exports.put = (req, res) =>{
-
-    let {id} = req.body
+        return res.redirect("index");
+      }
+    );
+  }
+  put(req, res) {
+    let { id } = req.body;
 
     let index = 0;
-    const founid = dadosC.carros.find((item,pos)=>{
+    const founid = dadosC.carros.find((item, pos) => {
+      if (item.id == id) {
+        index = pos;
+        return item;
+      }
+    });
 
-        if(item.id == id){
-
-            index = pos
-            return item
-        }
-
-
-    })
-   
     let inst = {
+      ...founid,
+      ...req.body,
+    };
 
-        ...founid,
-        ...req.body
+    lista.carros[index] = inst;
 
-    }
-   
-
-    lista.carros[index] = inst
-
-
-    fs.writeFile('./listac.json', JSON.stringify(lista,null,2),(erro,resposta)=>{
-
-
-        if(erro){
-
-          return res.send('Deu erro')
-
+    fs.writeFile(
+      "./listac.json",
+      JSON.stringify(lista, null, 2),
+      (erro, resposta) => {
+        if (erro) {
+          return res.send("Deu erro");
         }
 
-        return res.redirect("index")
+        return res.redirect("index");
+      }
+    );
+  }
+  show(req, res) {
+    let { id } = req.params;
 
-    })
-   
+    const founid = dadosC.carros.find((item) => {
+      return item.id == id;
+    });
 
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-exports.show = (req, res)=>{
-
-    let {id} = req.params
-
-    const founid = dadosC.carros.find((item)=>{
-
-        return item.id == id
-
-
-    })
-   
-    if(!founid){
-        
-        return res.send("Instrutor não encontrado")
-
+    if (!founid) {
+      return res.send("Instrutor não encontrado");
     }
 
-        return res.render('layout',{item:founid,lista})
+    return res.render("layout", { item: founid, lista });
+  }
+  post(req, res) {
+    try {
+      const valores = Object.keys(req.body);
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-exports.post = (req,res)=>{
-
-    const valores = Object.keys(req.body)
-
-    for(let valor of valores){
-
-        if(req.body[valor]==""){
-
-            return res.send('Preencha todos os campos')
-                
+      for (let valor of valores) {
+        if (req.body[valor] == "") {
+          return res.send("Preencha todos os campos");
         }
+      }
+      const { veiculo, marca, ano, vendido } = req.body;
+      let id = lista.carros.length + 1;
 
+      lista.carros.push({
+        id,
+        ...req.body,
+      });
 
+      fs.writeFile(
+        "./listac.json",
+        JSON.stringify(lista, null, 2),
+        (erro, resposta) => {
+          if (erro) {
+            return res.send("Deu erro");
+          }
 
+          return res.redirect("index");
+        }
+      );
+    } catch (error) {
+      console.log(error);
     }
-   const {veiculo, marca,ano,vendido } = req.body
-    let id  = lista.carros.length +1
-    
-    lista.carros.push(
-        {
-            id,
-            ...req.body
-            
-
-        }
-
-        
-        )
-
-    fs.writeFile('./listac.json', JSON.stringify(lista,null,2),(erro,resposta)=>{
-
-
-        if(erro){
-
-          return res.send('Deu erro')
-
-        }
-
-        return res.redirect('index')
-
-    })
-   
-    
-
-
-    
+  }
 }
+
+module.exports = new Carro();

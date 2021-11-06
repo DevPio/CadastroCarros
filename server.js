@@ -1,30 +1,25 @@
-const express = require('express')
+const express = require("express");
 
-const rotas = require('./rotas')
+const rotas = require("./routes");
 
-const methodo = require('method-override')
+const methodo = require("method-override");
 
-const nunjucks = require('nunjucks')
-        
-const server = express()
+const nunjucks = require("nunjucks");
 
+const server = express();
 
-server.use(express.urlencoded({extended:true}))
-server.use(methodo('_method'))
-server.use(rotas)
+server.use(express.urlencoded({ extended: true }));
+server.use(methodo("_method"));
+server.use(rotas);
 
-server.use(express.static('public'))
+server.use(express.static("public"));
 
-server.set('view engine',"njk")
+server.set("view engine", "njk");
 
+nunjucks.configure("views", {
+  express: server,
+  autoescape: false,
+  noCache: true,
+});
 
-
-
-nunjucks.configure('views',{
-    express:server,
-    autoescape:false,
-    noCache:true
-})
-
-
-server.listen(8080)
+server.listen(8080);

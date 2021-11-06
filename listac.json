@@ -8,10 +8,30 @@
       "vendido": "on"
     },
     {
-      "id": 3,
+      "id": "3",
       "veiculo": "Palio G5 SP.1.6 Flex",
-      "ano": "2008",
+      "ano": "2009",
       "marca": "Fiat"
+    },
+    {
+      "id": 3,
+      "veiculo": "Civic",
+      "ano": "2021",
+      "marca": "Honda"
+    },
+    {
+      "id": "4",
+      "veiculo": "206",
+      "ano": "2021",
+      "marca": "Peugeot",
+      "vendido": "on"
+    },
+    {
+      "id": 5,
+      "veiculo": "Civic",
+      "ano": "3",
+      "marca": "Peugeot",
+      "vendido": "on"
     }
   ]
 }
